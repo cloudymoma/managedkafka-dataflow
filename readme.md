@@ -4,7 +4,7 @@
 
 Pipelines
 - Kafka data producer, 1 message per second
-- Kafka data consumer, 10s sliding window, for every 1s emit spit out a sample message per window + count number of messages per window
+- Kafka data consumer, 10s sliding window, for every 1s log a sample message per window + count number of messages per window
 
 ### Quickstart
 
