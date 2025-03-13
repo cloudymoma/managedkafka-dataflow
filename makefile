@@ -8,6 +8,7 @@ gcs_bucket = bindiego
 job := bindiego-kafka
 kafka_server := bootstrap.dingo-kafka.us-central1.managedkafka.du-hast-mich.cloud.goog:9092
 kafka_topic := dingo-topic
+worker_utilization_hint := 0.9
 
 lo:
 	@mvn compile exec:java -Dexec.mainClass=bindiego.BindiegoKafka
@@ -31,6 +32,7 @@ df:
 --experiments=use_runner_v2 \
 --defaultWorkerLogLevel=DEBUG \
 --jobName=$(job) \
+--dataflowServiceOptions=$(worker_utilization_hint) \
 --kafkaBootstrapServers=$(kafka_server) \
 --kafkaTopic=$(kafka_topic)"
 
@@ -53,6 +55,7 @@ up:
 --experiments=use_runner_v2 \
 --defaultWorkerLogLevel=DEBUG \
 --jobName=$(job) \
+--dataflowServiceOptions=$(worker_utilization_hint) \
 --update \
 --kafkaBootstrapServers=$(kafka_server) \
 --kafkaTopic=$(kafka_topic)"
